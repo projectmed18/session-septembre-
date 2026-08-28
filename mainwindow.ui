@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1319</width>
+    <height>719</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Centre de Formation</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow { background-color: #1e1e2e; }</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>271</width>
+      <height>719</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #181825; border-right: 2px solid #313244;</string>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="page">
+     <widget class="QLabel" name="labelAppName">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>271</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #11111b; color: #cdd6f4;
+font: bold 11pt &quot;Segoe UI&quot;; padding-left: 20px;
+border-bottom: 2px solid #313244;</string>
+      </property>
+      <property name="text">
+       <string>Centre de Formation</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>120</y>
+        <width>231</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+  font: bold 11pt &quot;Segoe UI&quot;; color: #1e1e2e;
+  background-color: #a6e3a1; border-radius: 8px; border: none;
+}
+QPushButton:hover   { background-color: #94d690; }
+QPushButton:pressed { background-color: #7ec87a; }</string>
+      </property>
+      <property name="text">
+       <string>Formateurs</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_4">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>210</y>
+        <width>231</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+  font: bold 11pt &quot;Segoe UI&quot;; color: #1e1e2e;
+  background-color: #89b4fa; border-radius: 8px; border: none;
+}
+QPushButton:hover   { background-color: #74a0e8; }
+QPushButton:pressed { background-color: #5e8cd6; }</string>
+      </property>
+      <property name="text">
+       <string>Stagiaires</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>300</y>
+        <width>231</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+  font: bold 11pt &quot;Segoe UI&quot;; color: #1e1e2e;
+  background-color: #cba6f7; border-radius: 8px; border: none;
+}
+QPushButton:hover   { background-color: #b893e0; }
+QPushButton:pressed { background-color: #a47fc9; }</string>
+      </property>
+      <property name="text">
+       <string>Cours</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>390</y>
+        <width>231</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+  font: bold 11pt &quot;Segoe UI&quot;; color: #1e1e2e;
+  background-color: #89dceb; border-radius: 8px; border: none;
+}
+QPushButton:hover   { background-color: #74c9d8; }
+QPushButton:pressed { background-color: #5eb6c5; }</string>
+      </property>
+      <property name="text">
+       <string>Salles</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_5">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>480</y>
+        <width>231</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+  font: bold 11pt &quot;Segoe UI&quot;; color: #1e1e2e;
+  background-color: #fab387; border-radius: 8px; border: none;
+}
+QPushButton:hover   { background-color: #e89e72; }
+QPushButton:pressed { background-color: #d08855; }</string>
+      </property>
+      <property name="text">
+       <string>Inscriptions</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2"/>
+   </widget>
+   <widget class="QWidget" name="headerWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>271</x>
+      <y>0</y>
+      <width>1048</width>
+      <height>72</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #181825; border-bottom: 2px solid #313244;</string>
+    </property>
+    <widget class="QLabel" name="labelHeaderTitre">
+     <property name="geometry">
+      <rect>
+       <x>24</x>
+       <y>8</y>
+       <width>700</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #cdd6f4; font: bold 18pt &quot;Segoe UI&quot;;
+background: transparent; border: none;</string>
+     </property>
+     <property name="text">
+      <string>Bienvenue</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelHeaderSousTitre">
+     <property name="geometry">
+      <rect>
+       <x>24</x>
+       <y>42</y>
+       <width>700</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #6c7086; font: 9pt &quot;Segoe UI&quot;;
+background: transparent; border: none;</string>
+     </property>
+     <property name="text">
+      <string>Sélectionnez un module dans le menu de gauche</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QStackedWidget" name="stackedWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>271</x>
+      <y>72</y>
+      <width>1048</width>
+      <height>647</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #1e1e2e;</string>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="page_3"/>
+    <widget class="QWidget" name="page_4"/>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1319</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #181825; color: #cdd6f4; font: 9pt &quot;Segoe UI&quot;;</string>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="styleSheet">
+    <string notr="true">background-color: #181825; color: #6c7086; font: 8pt &quot;Segoe UI&quot;;</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

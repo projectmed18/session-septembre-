@@ -1,0 +1,36 @@
+# Build directories
+build/
+debug/
+release/
+*.o
+*.obj
+
+# Qt generated files
+*.moc
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+*.pro.user
+.qmake.stash
+Makefile
+Makefile.Debug
+Makefile.Release
+
+# IDE
+.qtcreator/
+*.user
+*.creator
+*.creator.user
+*.config
+*.files
+*.includes
+
+# Object files
+*.o
+*.a
+*.lib
+*.dll
+*.exe
+
+# PDF exports (générés à l'exécution)
+*.pdf
