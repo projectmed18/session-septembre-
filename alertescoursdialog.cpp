@@ -56,7 +56,7 @@ AlertesCoursDialog::AlertesCoursDialog(QWidget *parent)
 
     cardsLay->addWidget(creerCarte(m_valComplet, "Cours complets",           "#f38ba8"));
     cardsLay->addWidget(creerCarte(m_valAlerte,  "Presque complets (< 20%)", "#fab387"));
-    cardsLay->addWidget(creerCarte(m_valOk,      "Cours disponibles",        "#a6e3a1"));
+    cardsLay->addWidget(creerCarte(m_valOk,      "Total des alertes",        "#89b4fa"));
     mainLayout->addLayout(cardsLay);
 
     // ── Tableau ───────────────────────────────────────────────────
@@ -93,7 +93,6 @@ AlertesCoursDialog::AlertesCoursDialog(QWidget *parent)
     };
     dot("#f38ba8", "Complet");
     dot("#fab387", "Alerte (< 20% places)");
-    dot("#a6e3a1", "Disponible");
     botLay->addStretch();
 
     QPushButton *btnFermer = new QPushButton("Fermer", this);
@@ -118,6 +117,19 @@ void AlertesCoursDialog::chargerDonnees()
     m_table->setRowCount(0);
 
     for (const auto &c : liste) {
+        bool estComplet = (c.placesRestantes <= 0);
+        bool estAlerte  = (!estComplet && c.capaciteMax > 0 && c.placesRestantes <= c.capaciteMax * 0.2);
+
+        if (estComplet) {
+            complet++;
+        } else if (estAlerte) {
+            alerte++;
+        } else {
+            ok++;
+            // Ne pas afficher les cours normaux sans alerte dans la fenêtre d'alertes
+            continue;
+        }
+
         int row = m_table->rowCount();
         m_table->insertRow(row);
         m_table->setRowHeight(row, 36);
@@ -149,21 +161,18 @@ void AlertesCoursDialog::chargerDonnees()
         // État
         QString etat;
         QColor  couleur;
-        if (c.placesRestantes <= 0) {
-            etat = "COMPLET"; couleur = QColor("#f38ba8"); complet++;
-            // Colorer toute la ligne
+        if (estComplet) {
+            etat = "COMPLET";
+            couleur = QColor("#f38ba8");
             for (int col = 0; col < 7; ++col)
                 if (m_table->item(row, col))
                     m_table->item(row, col)->setBackground(QColor("#2d1e2a"));
-        } else if (c.capaciteMax > 0 && c.placesRestantes <= c.capaciteMax * 0.2) {
+        } else {
             etat = QString("ALERTE (%1 place(s))").arg(c.placesRestantes);
-            couleur = QColor("#fab387"); alerte++;
+            couleur = QColor("#fab387");
             for (int col = 0; col < 7; ++col)
                 if (m_table->item(row, col))
                     m_table->item(row, col)->setBackground(QColor("#2a2218"));
-        } else {
-            etat = QString("%1 place(s)").arg(c.placesRestantes);
-            couleur = QColor("#a6e3a1"); ok++;
         }
 
         QTableWidgetItem *etatItem = new QTableWidgetItem(etat);
@@ -174,7 +183,19 @@ void AlertesCoursDialog::chargerDonnees()
         m_table->setItem(row, 6, etatItem);
     }
 
+    if (m_table->rowCount() == 0) {
+        m_table->insertRow(0);
+        m_table->setRowHeight(0, 45);
+        QTableWidgetItem *emptyItem = new QTableWidgetItem("Aucune alerte : Tous les cours disposent d'une capacité suffisante.");
+        emptyItem->setTextAlignment(Qt::AlignCenter);
+        emptyItem->setFlags(emptyItem->flags() & ~Qt::ItemIsEditable);
+        emptyItem->setForeground(QColor("#a6e3a1"));
+        emptyItem->setFont(QFont("Segoe UI", 10, QFont::Bold));
+        m_table->setItem(0, 0, emptyItem);
+        m_table->setSpan(0, 0, 1, 7);
+    }
+
     m_valComplet->setText(QString::number(complet));
     m_valAlerte->setText(QString::number(alerte));
-    m_valOk->setText(QString::number(ok));
+    m_valOk->setText(QString::number(complet + alerte));
 }

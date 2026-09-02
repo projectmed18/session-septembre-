@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
     a.setPalette(palette);
 
     // --- Connexion base de données ---
-    if (!DatabaseManager::instance().connect("Source_Projet2A", "rayen", "12345678")) {
+    if (!DatabaseManager::instance().connect("Source_Projet2A", "rayen", "NouveauMotDePasse123")) {
         QMessageBox::critical(nullptr, "Erreur de connexion",
                               "Impossible de se connecter à la base de données.");
         return 1;
